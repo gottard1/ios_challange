@@ -41,23 +41,23 @@ final class ReceiptListViewController: UIViewController {
         navigationItem.backBarButtonItem = backButton
         
         let rightButton = UIBarButtonItem(image: .share, style: .done, target: self, action: nil)
+        navigationItem.rightBarButtonItem = rightButton
     }
+    
 }
 
 // MARK: - ViewModel Delegate
 extension ReceiptListViewController: ReceiptListViewModelDelegate {
     
-    func showLoading() { }
-    
-    func hideLoading() { }
-    
     func fetchReceiptListSuccess() {
         DispatchQueue.main.async { [weak self] in
+            self?.mainView.toggleViews(showPlaceholder: false)
             self?.mainView.receiptTableView.reloadData()
         }
     }
     
     func fetchReceiptListError(message: String) {
+        mainView.toggleViews(showPlaceholder: true)
         showAlert(title: "Atenção", message: message, buttons: [.init(title: "OK", style: .cancel)])
     }
 }

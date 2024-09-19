@@ -53,7 +53,7 @@ final class ReceiptTableViewCell: UITableViewCell {
     // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        selectionStyle = .none
         setupUI()
         setupConstraints()
     }

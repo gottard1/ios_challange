@@ -8,8 +8,6 @@
 import Foundation
 
 protocol ReceiptDetailViewModelDelegate: AnyObject {
-    func showLoading()
-    func hideLoading()
     func getDetailsSuccess(response: ReceiptModel)
     func getDetailsError(message: String)
 }
@@ -25,11 +23,7 @@ final class ReceiptDetailViewModel {
     }
     
     func getReceiptDetails(id: String) {
-        delegate?.showLoading()
-        
         service.fetchDetails(id: id) { [weak self] result in
-            self?.delegate?.hideLoading()
-            
             switch result {
                 case .success(let data):
                     self?.delegate?.getDetailsSuccess(response: data)

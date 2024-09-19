@@ -8,12 +8,8 @@
 import Foundation
 
 protocol ReceiptListViewModelDelegate: AnyObject {
-    func showLoading()
-    func hideLoading()
     func fetchReceiptListSuccess()
-    func fetchReceiptListError(
-        message: String
-    )
+    func fetchReceiptListError(message: String)
 }
 
 final class ReceiptListViewModel {
@@ -29,11 +25,7 @@ final class ReceiptListViewModel {
     var transactions: TransactionResponse = .init()
     
     func fetchReceiptList() {
-        delegate?.showLoading()
-        
         service.fetchReceiptList { [weak self] result in
-            self?.delegate?.hideLoading()
-            
             switch result {
                 case .success(let response):
                     self?.transactions = response

@@ -9,6 +9,19 @@ import UIKit
 
 final class ReceiptDetailView: UIView {
     
+    let containerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = true
+        return view
+    }()
+    
+    let placeholderView: ReceiptDetailPlaceholderView = {
+        let view = ReceiptDetailPlaceholderView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private let paymentSentImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -107,60 +120,75 @@ final class ReceiptDetailView: UIView {
         descriptionLabel.titleLabel.text = "Descrição"
         descriptionLabel.descLabel.text = details.description
     }
+    
+    func toggleViews(showPlaceholder: Bool) {
+        placeholderView.isHidden = !showPlaceholder
+        containerView.isHidden = showPlaceholder
+    }
 }
-
-
 
 // MARK: - Layout
 extension ReceiptDetailView {
     
     private func buildHierarchy() {
-        addSubview(paymentSentImageView)
-        addSubview(paymentSentLabel)
-        addSubview(amountLabel)
-        addSubview(dateLabel)
-        addSubview(senderView)
-        addSubview(recipientView)
-        addSubview(descriptionLabel)
-        addSubview(shareButton)
+        addSubview(placeholderView)
+        addSubview(containerView)
+        containerView.addSubview(paymentSentImageView)
+        containerView.addSubview(paymentSentLabel)
+        containerView.addSubview(amountLabel)
+        containerView.addSubview(dateLabel)
+        containerView.addSubview(senderView)
+        containerView.addSubview(recipientView)
+        containerView.addSubview(descriptionLabel)
+        containerView.addSubview(shareButton)
     }
     
     private func buildConstraints() {
         NSLayoutConstraint.activate([
-            paymentSentImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 32),
-            paymentSentImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            placeholderView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            placeholderView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            placeholderView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            placeholderView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+            containerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+            paymentSentImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32),
+            paymentSentImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
             paymentSentImageView.heightAnchor.constraint(equalToConstant: 24),
             paymentSentImageView.widthAnchor.constraint(equalToConstant: 24),
             
             paymentSentLabel.topAnchor.constraint(equalTo: paymentSentImageView.topAnchor),
             paymentSentLabel.leadingAnchor.constraint(equalTo: paymentSentImageView.trailingAnchor, constant: 8),
-            paymentSentLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
+            paymentSentLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
             
             amountLabel.topAnchor.constraint(equalTo: paymentSentLabel.bottomAnchor, constant: 32),
-            amountLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            amountLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            amountLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            amountLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
             
             dateLabel.topAnchor.constraint(equalTo: amountLabel.bottomAnchor, constant: 16),
-            dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            dateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            dateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            dateLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
             
             senderView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 24),
-            senderView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            senderView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            senderView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            senderView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
             
             recipientView.topAnchor.constraint(equalTo: senderView.bottomAnchor, constant: 24),
-            recipientView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            recipientView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            recipientView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            recipientView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
             
             descriptionLabel.topAnchor.constraint(equalTo: recipientView.bottomAnchor, constant: 24),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            descriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            descriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
             
             shareButton.topAnchor.constraint(greaterThanOrEqualTo: descriptionLabel.bottomAnchor, constant: 32),
-            shareButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            shareButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            shareButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            shareButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
             shareButton.heightAnchor.constraint(equalToConstant: 54),
-            shareButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -24)
+            shareButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -24)
         ])
     }
 }

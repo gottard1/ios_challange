@@ -37,23 +37,20 @@ class ReceiptDetailViewController: UIViewController {
         backButton.title = ""
         navigationItem.backBarButtonItem = backButton
     }
-    
 }
 
 // MARK: - ViewModel Delegate
 extension ReceiptDetailViewController: ReceiptDetailViewModelDelegate {
     
-    func showLoading() { }
-    
-    func hideLoading() { }
-    
     func getDetailsSuccess(response: ReceiptModel) {
         DispatchQueue.main.async { [weak self] in
+            self?.mainView.toggleViews(showPlaceholder: false)
             self?.mainView.setupView(details: response)
         }
     }
     
-    func getDetailsError(message: String) { 
+    func getDetailsError(message: String) {
+        mainView.toggleViews(showPlaceholder: true)
         showAlert(title: "Atenção", message: message, buttons: [.init(title: "OK", style: .destructive)])
     }
     
