@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38588ECC961CEF68159953E4 /* libPods-cora-ios-master.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA41BC05B8CDF8D766CE08F /* libPods-cora-ios-master.a */; };
 		85829E232C94989D0045BB88 /* ReceiptDetailPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85829E222C94989D0045BB88 /* ReceiptDetailPlaceholderView.swift */; };
 		85C0B1A52C9C706700C3AB09 /* FilteredPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C0B1A42C9C706700C3AB09 /* FilteredPlaceholderView.swift */; };
 		C34540FA2C907FD600FC1299 /* ReceiptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34540F92C907FD600FC1299 /* ReceiptTableViewCell.swift */; };
@@ -84,8 +85,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		67BCD45E9B80DCF59A250FB6 /* Pods-cora-ios-master.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cora-ios-master.release.xcconfig"; path = "Target Support Files/Pods-cora-ios-master/Pods-cora-ios-master.release.xcconfig"; sourceTree = "<group>"; };
 		85829E222C94989D0045BB88 /* ReceiptDetailPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDetailPlaceholderView.swift; sourceTree = "<group>"; };
 		85C0B1A42C9C706700C3AB09 /* FilteredPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredPlaceholderView.swift; sourceTree = "<group>"; };
+		BFA41BC05B8CDF8D766CE08F /* libPods-cora-ios-master.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cora-ios-master.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C34540F92C907FD600FC1299 /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
 		C34540FD2C90833500FC1299 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		C34540FF2C90876200FC1299 /* ReceiptListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptListViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +147,7 @@
 		C3EE45152C8A66BC009554D6 /* LoginCPFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCPFViewController.swift; sourceTree = "<group>"; };
 		C3EE45172C8A6865009554D6 /* CoraTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoraTextField.swift; sourceTree = "<group>"; };
 		C3EE451B2C8A6FD5009554D6 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		DBAE3FA96DDB22D071AC95BF /* Pods-cora-ios-master.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cora-ios-master.debug.xcconfig"; path = "Target Support Files/Pods-cora-ios-master/Pods-cora-ios-master.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3CF38632C8FD82900FE40E2 /* IQKeyboardManagerSwift in Frameworks */,
+				38588ECC961CEF68159953E4 /* libPods-cora-ios-master.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +184,14 @@
 				85C0B1A42C9C706700C3AB09 /* FilteredPlaceholderView.swift */,
 			);
 			path = Placeholders;
+			sourceTree = "<group>";
+		};
+		94F5B0663033F5BA34B8F419 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFA41BC05B8CDF8D766CE08F /* libPods-cora-ios-master.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C34540F42C907A5200FC1299 /* Service */ = {
@@ -416,6 +429,8 @@
 				C3EE44EC2C8A2D86009554D6 /* cora-ios-masterTests */,
 				C3EE44F62C8A2D86009554D6 /* cora-ios-masterUITests */,
 				C3EE44D42C8A2D84009554D6 /* Products */,
+				D92D3FA20F85292A96765221 /* Pods */,
+				94F5B0663033F5BA34B8F419 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -558,6 +573,16 @@
 			path = NavigationController;
 			sourceTree = "<group>";
 		};
+		D92D3FA20F85292A96765221 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DBAE3FA96DDB22D071AC95BF /* Pods-cora-ios-master.debug.xcconfig */,
+				67BCD45E9B80DCF59A250FB6 /* Pods-cora-ios-master.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -565,6 +590,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3EE44FD2C8A2D86009554D6 /* Build configuration list for PBXNativeTarget "cora-ios-master" */;
 			buildPhases = (
+				EC128E16C155F8DE8000E7E2 /* [CP] Check Pods Manifest.lock */,
 				C3EE44CF2C8A2D84009554D6 /* Sources */,
 				C3EE44D02C8A2D84009554D6 /* Frameworks */,
 				C3EE44D12C8A2D84009554D6 /* Resources */,
@@ -691,6 +717,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EC128E16C155F8DE8000E7E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-cora-ios-master-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C3EE44CF2C8A2D84009554D6 /* Sources */ = {
@@ -913,6 +964,7 @@
 		};
 		C3EE44FE2C8A2D86009554D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBAE3FA96DDB22D071AC95BF /* Pods-cora-ios-master.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -941,6 +993,7 @@
 		};
 		C3EE44FF2C8A2D86009554D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67BCD45E9B80DCF59A250FB6 /* Pods-cora-ios-master.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

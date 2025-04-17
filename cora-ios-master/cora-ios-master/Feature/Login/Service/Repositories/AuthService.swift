@@ -9,7 +9,7 @@ import Foundation
 
 final class AuthService {
     
-    private let manager: Networking
+    private let manager: Networking<>
     
     init(manager: Networking = NetworkManager()) {
         self.manager = manager
